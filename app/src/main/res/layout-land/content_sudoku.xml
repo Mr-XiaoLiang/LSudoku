@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="liang.lollipop.lsudoku.activity.SudokuActivity"
+    tools:showIn="@layout/activity_sudoku">
+
+    <LinearLayout
+        android:id="@+id/titleBar"
+        android:elevation="3dp"
+        android:background="@color/colorPrimary"
+        android:layout_height="match_parent"
+        android:layout_width="48dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:id="@+id/backBtn"
+            android:src="@drawable/ic_clear_white_24dp"/>
+
+        <TextView
+            android:id="@+id/levelTitleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="L19"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:typeface="sans"
+            android:rotation="270"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"/>
+
+        <ProgressBar
+            android:visibility="invisible"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/progressBar"/>
+
+        <ImageView
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:id="@+id/nightModeBtn"
+            android:src="@drawable/ic_night_close_white_24dp"
+            android:tint="@android:color/white"/>
+
+        <ImageView
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:id="@+id/previewBtn"
+            android:src="@drawable/ic_info_outline_black_24dp"
+            android:tint="@android:color/white"/>
+
+        <TextView
+            android:textSize="14sp"
+            android:id="@+id/timeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="10:22"
+            android:textColor="@android:color/white"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/statusView"
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/ic_sentiment_very_satisfied_black_24dp"
+            android:tint="@android:color/white"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent" />
+
+    <liang.lollipop.lsudoku.view.SudokuMapView
+        android:id="@+id/mapView"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent" />
+
+    <include layout="@layout/include_num_btn"/>
+
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

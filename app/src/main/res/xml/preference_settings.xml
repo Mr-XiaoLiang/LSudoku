@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/title_hint_group">
+
+        <SwitchPreference
+            android:title="@string/title_input_hint"
+            android:defaultValue="true"
+            android:key="@string/key_input_hint"
+            android:summaryOn="@string/summary_on_input_hint"
+            android:summaryOff="@string/summary_off_input_hint"/>
+
+        <SwitchPreference
+            android:title="@string/title_related_hint"
+            android:defaultValue="true"
+            android:key="@string/key_related_hint"
+            android:summaryOn="@string/summary_on_related_hint"
+            android:summaryOff="@string/summary_off_related_hint"/>
+
+        <SwitchPreference
+            android:title="@string/title_answer"
+            android:defaultValue="true"
+            android:key="@string/key_answer"
+            android:summaryOn="@string/summary_on_answer"
+            android:summaryOff="@string/summary_off_answer"/>
+
+        <SwitchPreference
+            android:title="@string/title_failing"
+            android:defaultValue="true"
+            android:key="@string/key_failing"
+            android:summaryOn="@string/summary_on_failing"
+            android:summaryOff="@string/summary_off_failing"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_color_group">
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_color_primary"
+            android:summary="@string/summary_color_primary"
+            app:defaultColor="@color/colorPrimary"
+            android:key="@string/key_color_primary"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_color_primary_light"
+            android:summary="@string/summary_color_primary_light"
+            app:defaultColor="@color/colorPrimaryLight"
+            android:key="@string/key_color_primary_light"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_color_primary_dark"
+            android:summary="@string/summary_color_primary_dark"
+            app:defaultColor="@color/colorPrimaryDark"
+            android:key="@string/key_color_primary_dark"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_color_accent"
+            android:summary="@string/summary_color_accent"
+            app:defaultColor="@color/colorAccent"
+            android:key="@string/key_color_accent"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_text_primary"
+            android:summary="@string/summary_text_primary"
+            app:defaultColor="@color/textPrimary"
+            android:key="@string/key_text_primary"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_text_secondary"
+            android:summary="@string/summary_text_secondary"
+            app:defaultColor="@color/textSecondary"
+            android:key="@string/key_text_secondary"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_color_divider"
+            android:summary="@string/summary_color_divider"
+            app:defaultColor="@color/colorDivider"
+            android:key="@string/key_color_divider"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_map_color_group">
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_src_color"
+            android:summary="@string/summary_map_src_color"
+            app:defaultColor="@color/textPrimary"
+            android:key="@string/key_map_src_color"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_edit_color"
+            android:summary="@string/summary_map_edit_color"
+            app:defaultColor="@color/textSecondary"
+            android:key="@string/key_map_edit_color"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_warning_color"
+            android:summary="@string/summary_map_warning_color"
+            app:defaultColor="@color/warningColor"
+            android:key="@string/key_map_warning_color"
+            android:dependency="@string/key_failing"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_associate_color"
+            android:summary="@string/summary_map_associate_color"
+            app:defaultColor="@color/associateColor"
+            android:key="@string/key_map_associate_color"
+            android:dependency="@string/key_related_hint"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_selected_color"
+            android:summary="@string/summary_map_selected_color"
+            app:defaultColor="@color/selectedColor"
+            android:key="@string/key_map_selected_color"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_border_color"
+            android:summary="@string/summary_map_border_color"
+            app:defaultColor="@color/borderColor"
+            android:key="@string/key_map_border_color"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_grid_color"
+            android:summary="@string/summary_map_grid_color"
+            app:defaultColor="@color/gridColor"
+            android:key="@string/key_map_grid_color"/>
+
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_big_grid_color"
+            android:summary="@string/summary_map_big_grid_color"
+            app:defaultColor="@color/bigGridColor"
+            android:key="@string/key_map_big_grid_color"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

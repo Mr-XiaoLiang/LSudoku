@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AutoSizeTextView">
+        <attr name="fontSize" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="SquareFrameLayout">
+        <attr name="maxWidth" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ProportionImageView">
+        <attr name="widthWeight" format="integer"/>
+        <attr name="heightWeight" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ColorPreference">
+        <attr name="defaultColor" format="color"/>
+    </declare-styleable>
+
+</resources>

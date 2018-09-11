@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menuNightMode"
+        android:title="@string/title_night_mode"
+        android:icon="@drawable/ic_night_close_white_24dp"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/menuSettings"
+        android:title="@string/title_settings"
+        android:icon="@drawable/ic_settings_white_24dp"
+        app:showAsAction="always"/>
+
+</menu>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="3dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+
+                <liang.lollipop.lcolorpalette.view.SatValPaletteView
+                    android:id="@+id/satValPalette"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_red_dark"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent" />
+
+                <liang.lollipop.lcolorpalette.view.HuePaletteView
+                    android:id="@+id/huePalette"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/holo_blue_bright"/>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:textSize="14sp"
+                    android:minWidth="60dp"
+                    android:id="@+id/colorValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FFFFFF"
+                    android:maxLength="6"
+                    android:textColor="#666"
+                    android:background="@android:color/transparent"/>
+
+                <ImageView
+                    android:id="@+id/colorDone"
+                    android:visibility="gone"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
+
+                <liang.lollipop.lcolorpalette.view.CirclePointView
+                    android:id="@+id/lastColor"
+                    android:layout_width="0px"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/arrowView"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:tint="?attr/colorPrimary"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <liang.lollipop.lcolorpalette.view.CirclePointView
+                    android:id="@+id/newColor"
+                    android:layout_width="0px"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</FrameLayout>

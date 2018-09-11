@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="liang.lollipop.lsudoku.activity.MainActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <include layout="@layout/content_main" />
+
+    <android.support.constraint.ConstraintLayout
+        android:visibility="invisible"
+        android:id="@+id/gameGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end">
+
+
+        <android.support.v7.widget.CardView
+            android:visibility="visible"
+            android:id="@+id/levelBody"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:cardCornerRadius="28dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="60dp">
+
+                <TextView
+                    android:id="@+id/levelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:text="13"
+                    android:gravity="center" />
+
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/levelSeekBar"
+                    android:layout_gravity="center"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:progress="20"
+                    android:max="60"
+                    android:progressTint="@android:color/white"
+                    android:thumbTint="@android:color/white"
+                    android:progressBackgroundTint="#8FFF"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/lastGameButton"
+            app:fabSize="normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@drawable/ic_play_arrow_black_24dp"
+            android:tint="@android:color/white"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@id/levelBody"
+            app:layout_constraintRight_toRightOf="@id/levelBody"/>
+
+        <TextView
+            android:id="@+id/lastGameTitle"
+            android:text="@string/btn_last_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:layout_constraintBottom_toBottomOf="@id/lastGameButton"
+            app:layout_constraintTop_toTopOf="@id/lastGameButton"
+            android:layout_marginRight="10dp"
+            app:layout_constraintRight_toLeftOf="@id/lastGameButton"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp"
+        android:tint="@android:color/white"/>
+
+</android.support.design.widget.CoordinatorLayout>
