@@ -133,7 +133,7 @@ class CrashHandler private constructor(): Thread.UncaughtExceptionHandler {
             val pi = pm.getPackageInfo(ctx.packageName, PackageManager.GET_ACTIVITIES)
             if (pi != null) {
                 val versionName = if (pi.versionName == null) "null" else pi.versionName
-                val versionCode = pi.versionCode.toString() + ""
+                val versionCode = pi.longVersionCode.toString() + ""
                 deviceInfo.put("versionName", versionName)
                 deviceInfo.put("versionCode", versionCode)
             }

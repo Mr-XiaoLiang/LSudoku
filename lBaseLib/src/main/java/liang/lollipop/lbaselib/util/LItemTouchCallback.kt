@@ -77,7 +77,7 @@ class LItemTouchCallback(private val listener:OnItemTouchCallbackListener): Item
         }
     }
 
-    override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder?): Int {
+    override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
         val layoutManager = recyclerView.layoutManager
         val flags = when (layoutManager) {
             is GridLayoutManager -> {// GridLayoutManager
@@ -135,20 +135,15 @@ class LItemTouchCallback(private val listener:OnItemTouchCallbackListener): Item
         return ItemTouchHelper.Callback.makeMovementFlags(flags[0], flags[1])
     }
 
-    override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder?): Boolean {
-        if(target == null){
-            return false
-        }
+    override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
         return listener.onMove(viewHolder.adapterPosition, target.adapterPosition)
     }
 
-    override fun onSwiped(viewHolder: RecyclerView.ViewHolder?, direction: Int) {
-        if(viewHolder != null){
-            listener.onSwiped(viewHolder.adapterPosition)
-        }
+    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+        listener.onSwiped(viewHolder.adapterPosition)
     }
 
-    fun onItemViewClick(holder: RecyclerView.ViewHolder?, v: View) {
+    fun onItemViewClick(holder: RecyclerView.ViewHolder, v: View) {
         listener.onItemViewClick(holder, v)
     }
 }

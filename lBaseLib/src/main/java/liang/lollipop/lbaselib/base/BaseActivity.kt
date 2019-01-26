@@ -9,6 +9,8 @@ import android.os.Handler
 import android.os.Message
 import android.support.annotation.LayoutRes
 import android.support.design.widget.AppBarLayout
+import android.support.design.widget.CollapsingToolbarLayout
+import android.support.design.widget.CoordinatorLayout
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
 import android.support.v7.app.AlertDialog
@@ -16,12 +18,14 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-import liang.lollipop.lbaselib.R
 import liang.lollipop.lbaselib.util.AppBarStateChangeListener
 import liang.lollipop.lbaselib.util.LItemTouchCallback
 import liang.lollipop.lbaselib.util.LItemTouchHelper
@@ -29,7 +33,7 @@ import liang.lollipop.lbaselib.util.PermissionsUtil
 import liang.lollipop.simplerefreshlayout.OnScrollDownListener
 import liang.lollipop.simplerefreshlayout.SimpleRefreshLayout
 import liang.lollipop.simplerefreshlayout.models.CircleMaterialModel
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by lollipop on 2018/1/2.
@@ -113,7 +117,30 @@ open class BaseActivity: AppCompatActivity(),
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             rootView!!.transitionName = TRANSITION_NAME
         }
+        whenDisplayCutout()
     }
+
+    private fun whenDisplayCutout() {
+        if (rootView != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
+            rootView?.fitsSystemWindows = true
+            rootView?.setOnApplyWindowInsetsListener { _, insets ->
+                onStatusBarHeightChange(insets.systemWindowInsetTop)
+                onWindowInsetsChange(insets.systemWindowInsetLeft,
+                        insets.systemWindowInsetTop,
+                        insets.systemWindowInsetRight,
+                        insets.systemWindowInsetBottom)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    return@setOnApplyWindowInsetsListener insets.consumeStableInsets()
+                } else {
+                    return@setOnApplyWindowInsetsListener insets
+                }
+            }
+        }
+    }
+
+    open fun onStatusBarHeightChange(height: Int) {}
+
+    open fun onWindowInsetsChange(left: Int, top: Int, right: Int, bottom: Int) {}
 
     protected open fun setToolbar(id: Int) {
         setToolbar(findViewById<Toolbar>(id))
@@ -277,5 +304,7 @@ open class BaseActivity: AppCompatActivity(),
     protected fun alert():AlertDialog.Builder{
         return AlertDialog.Builder(this)
     }
+
+
 
 }
