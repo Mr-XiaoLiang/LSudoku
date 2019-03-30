@@ -36,7 +36,10 @@ abstract class SudokuMapDrawable: Drawable() {
     var showAssociate = true
 
 
-    protected val paint = Paint()
+    protected val paint = Paint().apply {
+        isAntiAlias = true
+        isDither = true
+    }
 
     companion object {
 

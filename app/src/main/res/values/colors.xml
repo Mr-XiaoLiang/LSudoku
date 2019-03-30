@@ -14,4 +14,5 @@
     <color name="borderColor">#000</color>
     <color name="gridColor">#FFCCCCCC</color>
     <color name="bigGridColor">#FFCCCCCC</color>
+    <color name="symbolColor">#56C6DF</color>
 </resources>

@@ -18,14 +18,16 @@ import liang.lollipop.lsudoku.util.FontUtil
  */
 class SudokuMapView(context: Context, attrs: AttributeSet?,
                     @AttrRes defStyleAttr:Int, @StyleRes defStyleRes:Int)
-    : SquareFrameLayout(context,attrs,defStyleAttr, defStyleRes),View.OnClickListener {
+    : SquareFrameLayout(context,attrs,defStyleAttr, defStyleRes),
+        View.OnClickListener,
+        View.OnLongClickListener {
 
     constructor(context: Context, attrs: AttributeSet?,
                 @AttrRes defStyleAttr:Int):this(context,attrs,defStyleAttr,0)
     constructor(context: Context, attrs: AttributeSet?):this(context,attrs,0)
     constructor(context: Context):this(context,null)
 
-    private val numViews = Array(ROW * COL,{ AutoSizeTextView(context, attrs, defStyleAttr) })
+    private val numViews = Array(ROW * COL) { AutoSizeTextView(context, attrs, defStyleAttr) }
     var onGridClickListener: OnGridClickListener? = null
     private var srcMap:Array<IntArray>? = null
     private var warningColor = Color.RED and 0xAAFFFFFF.toInt()
@@ -52,6 +54,7 @@ class SudokuMapView(context: Context, attrs: AttributeSet?,
             addView(view)
             fontUtil.andWith(view)
             view.setOnClickListener(this)
+            view.setOnLongClickListener(this)
 
             if(isInEditMode){
                 view.text = "A"
@@ -93,7 +96,7 @@ class SudokuMapView(context: Context, attrs: AttributeSet?,
 
     fun resetFontSize(size:Float){
         for(view in numViews){
-            view.resetFontSize(size)
+            view.fontSize = size
         }
     }
 
@@ -115,7 +118,7 @@ class SudokuMapView(context: Context, attrs: AttributeSet?,
         getChild(x,y).setBackgroundColor(color)
     }
 
-    fun getChild(x:Int,y:Int): AutoSizeTextView {
+    private fun getChild(x:Int,y:Int): AutoSizeTextView {
         return numViews[y * COL + x]
     }
 
@@ -132,33 +135,42 @@ class SudokuMapView(context: Context, attrs: AttributeSet?,
 
     }
 
+    override fun onLongClick(v: View?): Boolean {
+        val index = numViews.indexOf(v)
+        if(index < 0){
+            return false
+        }
+
+        val x = index % COL
+        val y = index / COL
+
+        onGridClickListener?.onGridLongClick(numViews[index],x,y)
+        return true
+    }
+
     interface OnGridClickListener{
         fun onGridClick(view:View,x:Int,y:Int)
+        fun onGridLongClick(view:View,x:Int,y:Int)
     }
 
-    fun putSrcMap(map:Array<IntArray>){
-        srcMap = map
-        updateNumColor(map,map)
-    }
-
-    fun updateNumColor(srcMap:Array<IntArray>,map:Array<IntArray>){
+    fun updateNumColor(srcMap:Array<IntArray>,map:Array<IntArray>, symbol: Array<IntArray>){
 
         this.srcMap = srcMap
 
         for(row in 0 until map.size){
             for(col in 0 until map[row].size){
-
-                getChild(row,col).text = if(map[row][col] > 0){ ""+map[row][col] } else {""}
-                getChild(row,col).setTextColor(if(srcMap[row][col] > 0){ srcColor } else { editColor })
-
+                val view = getChild(row,col)
+                view.text = if(map[row][col] > 0){ "${map[row][col]}" } else {""}
+                view.setTextColor(if(srcMap[row][col] > 0){ srcColor } else { editColor })
+                view.changeSymbolStatus(symbol[row][col])
             }
         }
 
     }
 
-    fun warning(srcMap: Array<IntArray>,editMap:Array<IntArray>,warningMap:Array<IntArray>){
+    fun warning(srcMap: Array<IntArray>, editMap:Array<IntArray>, warningMap:Array<IntArray>, symbol: Array<IntArray>){
 
-        updateNumColor(srcMap,editMap)
+        updateNumColor(srcMap,editMap, symbol)
 
         if(!showColorHint){
             return
@@ -170,13 +182,13 @@ class SudokuMapView(context: Context, attrs: AttributeSet?,
         }
     }
 
-    var isShowWarning: Boolean
-    set(value) {
-        showColorHint = value
-    }
-    get() = showColorHint
+    private var isShowWarning: Boolean
+        set(value) {
+            showColorHint = value
+        }
+        get() = showColorHint
 
-    var isShowAssociate: Boolean
+    private var isShowAssociate: Boolean
         set(value) {
             backgroundDrawable.showAssociate = value
         }
@@ -201,7 +213,33 @@ class SudokuMapView(context: Context, attrs: AttributeSet?,
         backgroundDrawable.bigGridBorderColor = skin.bigGridColor
         isShowWarning = skin.warningHint
         isShowAssociate = skin.associateHint
-        backgroundDrawable.invalidateSelf()
+//        backgroundDrawable.invalidateSelf()
+        symbolColor(skin.symbolColor)
+        invalidate()
+    }
+
+    private fun symbolColor(color: Int) {
+        for (view in numViews) {
+            view.symbolColor(color)
+        }
+    }
+
+    fun symbolSizeWeight(weight: Float) {
+        for (view in numViews) {
+            view.symbolSizeWeight(weight)
+        }
+    }
+
+    fun onSymbolChange(value: Int, x: Int, y: Int) {
+        numViews[y * 9 + x].changeSymbolStatus(value)
+    }
+
+    fun onSymbolChangea(values: Array<IntArray>) {
+        for (x in 0 until values.size) {
+            for (y in 0 until values[x].size) {
+                onSymbolChange(values[x][y], x, y)
+            }
+        }
     }
 
 }

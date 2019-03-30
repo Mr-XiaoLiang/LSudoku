@@ -131,6 +131,12 @@
             app:defaultColor="@color/bigGridColor"
             android:key="@string/key_map_big_grid_color"/>
 
+        <liang.lollipop.lsudoku.preference.ColorPreference
+            android:title="@string/title_map_symbol_color"
+            android:summary="@string/summary_map_symbol_color"
+            app:defaultColor="@color/symbolColor"
+            android:key="@string/key_map_symbol_color"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

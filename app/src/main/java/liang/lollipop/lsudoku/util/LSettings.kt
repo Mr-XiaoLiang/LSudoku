@@ -107,6 +107,7 @@ object LSettings{
         skin.borderColor = getColorSettings(context, R.string.key_map_border_color,R.color.borderColor)
         skin.gridColor = getColorSettings(context, R.string.key_map_grid_color,R.color.gridColor)
         skin.bigGridColor = getColorSettings(context, R.string.key_map_big_grid_color,R.color.bigGridColor)
+        skin.symbolColor = getColorSettings(context, R.string.key_map_symbol_color,R.color.symbolColor)
 
         skin.associateHint = get(context,R.string.key_related_hint,true)
         skin.warningHint = get(context,R.string.key_failing,true)

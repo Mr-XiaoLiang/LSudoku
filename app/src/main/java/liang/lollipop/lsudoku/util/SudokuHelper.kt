@@ -1,5 +1,6 @@
 package liang.lollipop.lsudoku.util
 
+import android.util.Log
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -98,6 +99,17 @@ object SudokuHelper{
         for(row in 0 until toMap.size){
             for(col in 0 until toMap[row].size){
                 toMap[row][col] = srcMap[row][col]
+            }
+        }
+    }
+
+    /**
+     * 清空一个Map
+     */
+    fun cleanMap(srcMap:Array<IntArray>){
+        for(row in 0 until srcMap.size){
+            for(col in 0 until srcMap[row].size){
+                srcMap[row][col] = 0
             }
         }
     }
@@ -430,7 +442,7 @@ object SudokuHelper{
      */
     fun hint(map: Array<IntArray>,row: Int,col: Int):IntArray{
 
-        val result = IntArray(9,{i -> i+1})
+        val result = IntArray(9) { i -> i+1}
 
         // 获得左上角的坐标
         val j = row / 3 * 3
@@ -454,21 +466,31 @@ object SudokuHelper{
 
     }
 
-    fun serialization(sudokuMap:Array<IntArray>, srcMap: Array<IntArray>, editMap: Array<IntArray>): String{
-        return merge(mapToString(sudokuMap),mapToString(srcMap),mapToString(editMap))
+    fun serialization(sudokuMap:Array<IntArray>, srcMap: Array<IntArray>,
+                      editMap: Array<IntArray>, symbolMap: Array<IntArray>): String{
+        log(mapToString(symbolMap))
+        return merge(mapToString(sudokuMap), mapToString(srcMap),
+                mapToString(editMap), mapToStringBySymbol(symbolMap))
     }
 
-    fun parse(string: String,sudokuMap:Array<IntArray>, srcMap: Array<IntArray>, editMap: Array<IntArray>){
+    fun parse(string: String,sudokuMap:Array<IntArray>, srcMap: Array<IntArray>,
+              editMap: Array<IntArray>, symbolMap: Array<IntArray>) {
         val strArray = split(string)
         stringToMap(strArray[0],sudokuMap)
         stringToMap(strArray[1],srcMap)
         stringToMap(strArray[2],editMap)
+        if (strArray.size > 3) {
+            stringToMapBySymbol(strArray[3],symbolMap)
+            log(strArray[3])
+        } else {
+            cleanMap(symbolMap)
+        }
     }
 
     fun clearEdit(map:String):String{
 
         val strArray = split(map)
-        val resultList = Array(strArray.size,{ i -> strArray[i] })
+        val resultList = Array(strArray.size) { i -> strArray[i] }
         resultList[2] = strArray[1]
         return merge(*resultList)
 
@@ -496,24 +518,51 @@ object SudokuHelper{
         return map
     }
 
-    private fun stringToMap(str:String,map:Array<IntArray>){
-        val charArray = str.toCharArray()
-        if(charArray.size<81){
+    private fun stringToMap(str:String, map:Array<IntArray>){
+        if(str.length < 81){
             throw RuntimeException("data error")
         }
-        for (index in 0 until charArray.size){
-            map[index/9][index%9] = Integer.parseInt(charArray[index].toString())
+        for (index in 0 until 81){
+            map[index / 9][index % 9] = Integer.parseInt(str.substring(index, index + 1))
         }
     }
 
-    private fun mapToString(array:Array<IntArray>):String{
+    private fun mapToString(array:Array<IntArray>): String {
         val stringBuilder = StringBuilder()
         for(row in array){
             for (col in row){
-                stringBuilder.append(col)
+                stringBuilder.append("$col")
             }
         }
         return stringBuilder.toString()
+    }
+
+    private fun stringToMapBySymbol(str:String, map:Array<IntArray>) {
+        if(str.isEmpty()){
+            throw RuntimeException("data error")
+        }
+        val dataArray = str.split(",")
+        if (dataArray.size < 81) {
+            throw RuntimeException("data error")
+        }
+        for (index in 0 until 81){
+            map[index / 9][index % 9] = Integer.parseInt(dataArray[index])
+        }
+    }
+
+    private fun mapToStringBySymbol(array:Array<IntArray>): String {
+        val stringBuilder = StringBuilder()
+        array.forEach { row ->
+            row.forEach { col ->
+                stringBuilder.append("$col")
+                stringBuilder.append(",")
+            }
+        }
+        return stringBuilder.toString()
+    }
+
+    private fun log(value: String) {
+        Log.d("Lollipop", "SudokuHelper: $value")
     }
 
 }

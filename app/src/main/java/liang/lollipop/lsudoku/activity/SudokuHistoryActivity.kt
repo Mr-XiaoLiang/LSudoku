@@ -49,7 +49,7 @@ class SudokuHistoryActivity : LSkinActivity() {
 
     override fun onSkinUpdate(skin: Skin) {
 
-        skinUtil.withMapView(mapView,historyBean.srcMap,historyBean.editMap)
+        skinUtil.withMapView(mapView,historyBean.srcMap,historyBean.editMap, null, historyBean.symbolMap)
         logoText.setTextColor(skin.colorPrimary)
         leftLineView.setBackgroundColor(skin.colorAccent)
         rightLineView.setBackgroundColor(skin.colorAccent)
@@ -95,7 +95,7 @@ class SudokuHistoryActivity : LSkinActivity() {
 
     private fun putData(){
 
-        mapView.updateNumColor(historyBean.srcMap,historyBean.editMap)
+        mapView.updateNumColor(historyBean.srcMap,historyBean.editMap, historyBean.symbolMap)
         startTimeView.text = String.format(getString(R.string.game_time),historyBean.getStartTimeName(),historyBean.getEndTimeName())
         hintTimeView.text = String.format(getString(R.string.hint_time),historyBean.getHintTimeName())
         gameLengthView.text = historyBean.getGameTimeName()

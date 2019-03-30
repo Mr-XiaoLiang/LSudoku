@@ -23,6 +23,8 @@ class SettingsActivity : LSkinActivity(),SettingsFragment.OnColorChangeCallback 
 
     private val warningDemoMap = Array(9) {IntArray(9)}
 
+    private val symbolDemoMap = Array(9) {IntArray(9)}
+
     private val selectDemoPoint = Point()
 
     init {
@@ -50,7 +52,14 @@ class SettingsActivity : LSkinActivity(),SettingsFragment.OnColorChangeCallback 
                 }
             }
         }
-
+        for(row in 0 until symbolDemoMap.size){
+            for(col in 0 until symbolDemoMap[row].size){
+                if(srcDemoMap[row][col] == 0){
+                    continue
+                }
+                symbolDemoMap[row][col] = random.nextInt()
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +76,7 @@ class SettingsActivity : LSkinActivity(),SettingsFragment.OnColorChangeCallback 
     override fun onSkinUpdate(skin: Skin) {
 
         skinUtil.withFAB(floatingActionButton)
-                .withMapView(mapView,srcDemoMap,editDemoMap,warningDemoMap)
+                .withMapView(mapView,srcDemoMap,editDemoMap,warningDemoMap, symbolDemoMap)
         mapView.selected(selectDemoPoint.x,selectDemoPoint.y)
 
     }

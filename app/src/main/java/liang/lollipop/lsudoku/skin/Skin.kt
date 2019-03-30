@@ -39,6 +39,8 @@ open class Skin: BaseBean() {
     var gridColor = 0
     /** 大格子颜色 **/
     var bigGridColor = 0
+    /** 标志颜色 **/
+    var symbolColor = 0
     /** 关联提示开关 **/
     var associateHint = true
     /** 错误提示开关 **/
@@ -50,7 +52,7 @@ open class Skin: BaseBean() {
                 + colorAccent +  colorDivider + textPrimary
                 +  textSecondary + warningColor + srcColor
                 + editColor + associateColor + selectedColor
-                + borderColor + gridColor + bigGridColor
+                + borderColor + gridColor + bigGridColor + symbolColor
                 + associateHint.toInt() + warningHint.toInt())
     }
 
@@ -84,6 +86,7 @@ open class Skin: BaseBean() {
         this.borderColor = skin.borderColor
         this.gridColor = skin.gridColor
         this.bigGridColor = skin.bigGridColor
+        this.symbolColor = skin.symbolColor
         this.associateHint = skin.associateHint
         this.warningHint = skin.warningHint
     }
@@ -92,7 +95,7 @@ open class Skin: BaseBean() {
         return "colorPrimary:$colorPrimary,colorPrimaryDark:$colorPrimaryDark,colorPrimaryLight:$colorPrimaryLight,colorAccent:$colorAccent," +
                 "colorDivider:$colorDivider,textPrimary:$textPrimary,textSecondary:$textSecondary,warningColor:$warningColor,srcColor:$srcColor" +
                 ",editColor:$editColor,associateColor:$associateColor,selectedColor:$selectedColor," +
-                "borderColor:$borderColor,gridColor:$gridColor,bigGridColor:$bigGridColor,associateHint:$associateHint,warningHint:$warningHint"
+                "borderColor:$borderColor,gridColor:$gridColor,bigGridColor:$bigGridColor,symbolColor:$symbolColor,associateHint:$associateHint,warningHint:$warningHint"
     }
 
 }

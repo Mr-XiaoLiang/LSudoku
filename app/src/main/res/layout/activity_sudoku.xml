@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="liang.lollipop.lsudoku.activity.SudokuActivity"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="liang.lollipop.lsudoku.activity.SudokuActivity">
 
-    <View
-        android:id="@+id/statusBarView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_top_margin"
-        android:background="@color/colorPrimaryDark"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <include layout="@layout/content_sudoku" />
+        <View
+            android:id="@+id/statusBarView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_top_margin"
+            android:background="@color/colorPrimaryDark" />
 
-</LinearLayout>
+        <include layout="@layout/content_sudoku" />
+
+    </LinearLayout>
+    
+    <include layout="@layout/include_symbol_panel"/>
+    
+</FrameLayout>
+

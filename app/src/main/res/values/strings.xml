@@ -10,16 +10,16 @@
     <string name="game_time">game time:\n%1$s - %2$s </string>
     <string name="hint_time">Prompt time:%1$s</string>
     <string name="title_settings">Setting</string>
-    <string name="key_input_hint">KEY_INPUT_HINT</string>
+    <string translatable="false" name="key_input_hint">KEY_INPUT_HINT</string>
     <string name="summary_on_input_hint">When the grid is selected, the prompt can fill in the content</string>
     <string name="summary_off_input_hint">Prompt to fill in content when the grid is not selected</string>
     <string name="title_input_hint">Fill in the prompt</string>
     <string name="title_hint_group">reminder settings</string>
-    <string name="key_related_hint">KEY_RELATED_HINTT</string>
+    <string translatable="false" name="key_related_hint">KEY_RELATED_HINTT</string>
     <string name="title_related_hint">Associated prompt</string>
     <string name="summary_on_related_hint">The associated grid will be highlighted when the grid is selected</string>
     <string name="summary_off_related_hint">The associated grid will not be highlighted when the grid is selected</string>
-    <string name="key_answer">KEY_ANSWER</string>
+    <string translatable="false" name="key_answer">KEY_ANSWER</string>
     <string name="title_answer">Show answer</string>
     <string name="summary_on_answer">Will display the button for viewing the answer in the game interface</string>
     <string name="summary_off_answer">Will not show the button to view the answer in the game interface</string>
@@ -28,25 +28,25 @@
     <string name="btn_last_game">Continue the game</string>
     <string name="title_color_primary">Primary color</string>
     <string name="summary_color_primary">In-app primary colors</string>
-    <string name="key_color_primary">KEY_COLOR_PRIMARY</string>
+    <string translatable="false" name="key_color_primary">KEY_COLOR_PRIMARY</string>
     <string name="title_color_primary_light">Light primary color</string>
     <string name="summary_color_primary_light">Main color highlighting color in the application</string>
-    <string name="key_color_primary_light">KEY_COLOR_PRIMARY_LIGHT</string>
+    <string translatable="false" name="key_color_primary_light">KEY_COLOR_PRIMARY_LIGHT</string>
     <string name="title_color_primary_dark">Dark primary color</string>
     <string name="summary_color_primary_dark">The dark color of the main color in the application</string>
-    <string name="key_color_primary_dark">KEY_COLOR_PRIMARY_DARK</string>
+    <string translatable="false" name="key_color_primary_dark">KEY_COLOR_PRIMARY_DARK</string>
     <string name="title_color_accent">Accent color</string>
     <string name="summary_color_accent">The color of the theme color is generally used as a reminder color of the operation button</string>
-    <string name="key_color_accent">KEY_COLOR_ACCENT</string>
+    <string translatable="false" name="key_color_accent">KEY_COLOR_ACCENT</string>
     <string name="title_text_primary">Text primary color</string>
     <string name="summary_text_primary">The title color of the content</string>
-    <string name="key_text_primary">KEY_TEXT_PRIMARY</string>
+    <string translatable="false" name="key_text_primary">KEY_TEXT_PRIMARY</string>
     <string name="title_text_secondary">Text secondary color</string>
     <string name="summary_text_secondary">General color as text content</string>
-    <string name="key_text_secondary">KEY_TEXT_SECONDARY</string>
+    <string translatable="false" name="key_text_secondary">KEY_TEXT_SECONDARY</string>
     <string name="title_color_divider">Divider color</string>
     <string name="summary_color_divider">General segmentation color for content blocks</string>
-    <string name="key_color_divider">KEY_COLOR_DIVIDER</string>
+    <string translatable="false" name="key_color_divider">KEY_COLOR_DIVIDER</string>
     <string name="open">Open</string>
     <string name="no">No need</string>
     <string name="error_no_description">An error occurred, but no error description was found</string>
@@ -67,33 +67,46 @@
     <string name="try_it">Try it</string>
     <string name="save_error">Game save failed</string>
     <string name="title_failing">Error message</string>
-    <string name="key_failing">KEY_FAILING</string>
+    <string translatable="false" name="key_failing">KEY_FAILING</string>
     <string name="summary_on_failing">Will be in the game interface, suggesting the wrong grid</string>
     <string name="summary_off_failing">Will not be in the game interface, suggest wrong grid</string>
     <string name="title_map_src_color">Question grid color</string>
     <string name="title_map_color_group">Checkerboard color</string>
     <string name="summary_map_src_color">The color of the unchangeable part of the board</string>
-    <string name="key_map_src_color">KEY_MAP_SRC_COLOR</string>
+    <string translatable="false" name="key_map_src_color">KEY_MAP_SRC_COLOR</string>
     <string name="title_map_edit_color">Answer color</string>
     <string name="summary_map_edit_color">Can manipulate and modify the grid color</string>
-    <string name="key_map_edit_color">KEY_MAP_EDIT_COLOR</string>
+    <string translatable="false" name="key_map_edit_color">KEY_MAP_EDIT_COLOR</string>
     <string name="title_map_warning_color">Conflict color</string>
     <string name="summary_map_warning_color">Answer conflict grid color</string>
-    <string name="key_map_warning_color">KEY_MAP_WARNING_COLOR</string>
+    <string translatable="false" name="key_map_warning_color">KEY_MAP_WARNING_COLOR</string>
     <string name="title_map_associate_color">Associated grid color</string>
     <string name="summary_map_associate_color">The grid color associated with the currently selected grid</string>
-    <string name="key_map_associate_color">KEY_MAP_ASSOCIATE_COLOR</string>
+    <string translatable="false" name="key_map_associate_color">KEY_MAP_ASSOCIATE_COLOR</string>
     <string name="title_map_selected_color">Check color</string>
     <string name="summary_map_selected_color">Selected grid color</string>
-    <string name="key_map_selected_color">KEY_MAP_SELECTED_COLOR</string>
+    <string translatable="false" name="key_map_selected_color">KEY_MAP_SELECTED_COLOR</string>
     <string name="title_map_border_color">Checkerboard border color</string>
     <string name="summary_map_border_color">Checkerboard outer border color</string>
-    <string name="key_map_border_color">KEY_MAP_BORDER_COLOR</string>
+    <string translatable="false" name="key_map_border_color">KEY_MAP_BORDER_COLOR</string>
     <string name="title_map_grid_color">Split line color</string>
     <string name="summary_map_grid_color">Checkerboard dividing line color</string>
-    <string name="key_map_grid_color">KEY_MAP_GRID_COLOR</string>
-    <string name="key_map_big_grid_color">KEY_MAP_BIG_GRID_COLOR</string>
+    <string translatable="false" name="key_map_grid_color">KEY_MAP_GRID_COLOR</string>
+    <string translatable="false" name="key_map_big_grid_color">KEY_MAP_BIG_GRID_COLOR</string>
     <string name="summary_map_big_grid_color">Large grid divider color</string>
     <string name="title_map_big_grid_color">Grid divider color</string>
+    <string translatable="false" name="key_map_symbol_color">KEY_MAP_SYMBOL_COLOR</string>
+
     <string name="title_night_mode">Night mode</string>
+    <string name="number_1" translatable="false">1</string>
+    <string name="number_2" translatable="false">2</string>
+    <string name="number_3" translatable="false">3</string>
+    <string name="number_4" translatable="false">4</string>
+    <string name="number_5" translatable="false">5</string>
+    <string name="number_6" translatable="false">6</string>
+    <string name="number_7" translatable="false">7</string>
+    <string name="number_8" translatable="false">8</string>
+    <string name="number_9" translatable="false">9</string>
+    <string name="title_map_symbol_color">备注颜色</string>
+    <string name="summary_map_symbol_color">备注标识的颜色</string>
 </resources>

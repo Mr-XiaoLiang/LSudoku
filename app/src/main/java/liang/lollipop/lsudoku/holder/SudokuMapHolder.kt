@@ -47,7 +47,7 @@ class SudokuMapHolder private constructor(itemView: View): BaseHolder<SudokuBean
 
     override fun onBind(bean: SudokuBean) {
 
-        mapView.updateNumColor(bean.srcMap,bean.editMap)
+        mapView.updateNumColor(bean.srcMap,bean.editMap, bean.symbolMap)
         levelView.text = bean.getLevelName()
         timeView.text = bean.getEndTimeName()
         lengthView.text = bean.getGameTimeName()

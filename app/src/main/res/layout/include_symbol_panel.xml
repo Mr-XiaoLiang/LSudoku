@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/symbolPanelView"
+    android:visibility="invisible">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8000"
+        android:id="@+id/symbolPanelBg"/>
+
+    <android.support.design.card.MaterialCardView
+        app:cardCornerRadius="2dp"
+        app:cardElevation="16dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center"
+        android:id="@+id/symbolPanelCard">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn1"
+                app:layout_constraintBottom_toTopOf="@id/symbolNumBtn4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/symbolNumBtn2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_1"
+                android:textSize="30dp" />
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn2"
+                app:layout_constraintBottom_toBottomOf="@id/symbolNumBtn1"
+                app:layout_constraintLeft_toRightOf="@id/symbolNumBtn1"
+                app:layout_constraintRight_toLeftOf="@id/symbolNumBtn3"
+                app:layout_constraintTop_toTopOf="@id/symbolNumBtn1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_2"
+                android:textSize="30dp" />
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn3"
+                app:layout_constraintBottom_toBottomOf="@id/symbolNumBtn2"
+                app:layout_constraintLeft_toRightOf="@id/symbolNumBtn2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/symbolNumBtn2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_3"
+                android:textSize="30dp" />
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn4"
+                app:layout_constraintBottom_toTopOf="@id/symbolNumBtn7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/symbolNumBtn2"
+                app:layout_constraintTop_toBottomOf="@id/symbolNumBtn1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_4"
+                android:textSize="30dp" />
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn5"
+                app:layout_constraintBottom_toBottomOf="@id/symbolNumBtn4"
+                app:layout_constraintLeft_toRightOf="@id/symbolNumBtn4"
+                app:layout_constraintRight_toLeftOf="@id/symbolNumBtn6"
+                app:layout_constraintTop_toTopOf="@id/symbolNumBtn4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_5"
+                android:textSize="30dp" />
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn6"
+                app:layout_constraintBottom_toBottomOf="@id/symbolNumBtn5"
+                app:layout_constraintLeft_toRightOf="@id/symbolNumBtn5"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/symbolNumBtn5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_6"
+                android:textSize="30dp" />
+
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/symbolNumBtn4"
+                app:layout_constraintRight_toLeftOf="@id/symbolNumBtn8"
+                app:layout_constraintTop_toBottomOf="@id/symbolNumBtn4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_7"
+                android:textSize="30dp" />
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn8"
+                app:layout_constraintBottom_toBottomOf="@id/symbolNumBtn7"
+                app:layout_constraintLeft_toRightOf="@id/symbolNumBtn7"
+                app:layout_constraintRight_toLeftOf="@id/symbolNumBtn9"
+                app:layout_constraintTop_toTopOf="@id/symbolNumBtn7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_8"
+                android:textSize="30dp" />
+
+            <TextView
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:id="@+id/symbolNumBtn9"
+                app:layout_constraintBottom_toBottomOf="@id/symbolNumBtn8"
+                app:layout_constraintLeft_toRightOf="@id/symbolNumBtn8"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/symbolNumBtn8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/number_9"
+                android:textSize="30dp" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.card.MaterialCardView>
+</FrameLayout>

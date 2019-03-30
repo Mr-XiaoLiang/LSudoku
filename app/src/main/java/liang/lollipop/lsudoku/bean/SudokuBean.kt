@@ -24,11 +24,13 @@ class SudokuBean: BaseBean() {
     }
 
     //数独的完整数据
-    val sudokuMap = Array(9,{ IntArray(9) })
+    val sudokuMap = Array(9) { IntArray(9) }
     //题目本身的数据
-    val srcMap = Array(9,{IntArray(9)})
+    val srcMap = Array(9) {IntArray(9)}
     //正在编辑的数据
-    val editMap = Array(9,{IntArray(9)})
+    val editMap = Array(9) {IntArray(9)}
+    // 标记用的地图
+    val symbolMap = Array(9) { IntArray(9) }
 
     private var mapValue = ""
 
@@ -37,7 +39,7 @@ class SudokuBean: BaseBean() {
         get() = mapValue
         set(value){
             mapValue = value
-            SudokuHelper.parse(map,sudokuMap,srcMap,editMap)
+            SudokuHelper.parse(map,sudokuMap,srcMap,editMap, symbolMap)
         }
     var level = 0
     var startTime = 0L

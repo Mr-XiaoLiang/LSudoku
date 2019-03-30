@@ -25,12 +25,14 @@ class SkinUtil(private var skin:Skin) {
         return this
     }
 
-    fun withMapView(mapView: SudokuMapView,srcMap:Array<IntArray>,editMap:Array<IntArray>,warningMap:Array<IntArray>? = null): SkinUtil{
+    fun withMapView(mapView: SudokuMapView,srcMap:Array<IntArray>,
+                    editMap:Array<IntArray>,warningMap:Array<IntArray>?,
+                    symbolMap:Array<IntArray>): SkinUtil{
         mapView.onSkinChange(skin)
         if(warningMap != null){
-            mapView.warning(srcMap, editMap, warningMap)
+            mapView.warning(srcMap, editMap, warningMap, symbolMap)
         }else{
-            mapView.updateNumColor(srcMap,editMap)
+            mapView.updateNumColor(srcMap,editMap, symbolMap)
         }
         return this
     }
